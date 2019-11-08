@@ -97,14 +97,14 @@ public class GithubOrgMembershipService implements MembershipService {
             github = new RtGithub(new RtGithub(accessToken).entry()
                     .through(RetryCarefulWire.class, 50));
 
-            // logger.info("github=" + github);
-            // User ghuser = github.users().get(user);
-            // logger.info("ghuser=" + ghuser);
-            // JsonResponse jruser = github.entry().uri().path("/user").back().method(Request.GET).fetch()
-            //         .as(JsonResponse.class);
-            // logger.info("jruser =" + jruser);
-            // Organization org = github.organizations().get(githubOrg);
-            // logger.info("org =" + org);
+             logger.info("github=" + github);
+             User ghuser = github.users().get(user);
+             logger.info("ghuser=" + ghuser);
+             JsonResponse jruser = github.entry().uri().path("/user").back().method(Request.GET).fetch()
+                     .as(JsonResponse.class);
+             logger.info("jruser =" + jruser);
+             Organization org = github.organizations().get(githubOrg);
+             logger.info("org =" + org);
 
             String path = String.format("/user/memberships/orgs/%s",githubOrg);
 
