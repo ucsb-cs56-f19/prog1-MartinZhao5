@@ -31,7 +31,8 @@ public class HomePageTest {
  @MockBean
  private ClientRegistrationRepository crr;
 
-    @Test
+    
+            @Test
     public void getHomePage_ContentType() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML))
                 .andExpect(status().isOk())
@@ -54,11 +55,30 @@ public class HomePageTest {
 
 
     @Test
-    public void getHomePage_hasCorrectBrand() throws Exception {
+    public void getHomePage_hasCorrectTitle() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML))
                 .andExpect(status().isOk())
-                .andExpect(xpath("//*[@id='navbarTogglerDemo03']/ul[1]/li[2]/a").exists())
+                .andExpect(xpath("//title").exists())
+                .andExpect(xpath("//title").string("CS56 Spring Boot Practice App"));
+    }
+    
 
-                .andExpect(xpath("//*[@id='navbarTogglerDemo03']/ul[1]/li[2]/a").string("Earthquakes"));
+    @Test
+    public void getHomePage_hasCorrectBrand() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML))
+	    .andExpect(status().isOk())
+	    .andExpect(xpath("/html/body/div/nav/a").exists())
+	    .andExpect(xpath("/html/body/div/nav/a").string("lab07"));
+    }
+
+
+    @Test
+    public void getHomePage_hasCorrectLink() throws Exception {
+	    mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML))
+            .andExpect(status().isOk())
+            .andExpect(xpath("/html/body/div/nav/div/ul[1]/li[2]/a").exists())
+            .andExpect(xpath("/html/body/div/nav/div/ul[1]/li[2]/a").string("Earthquakes"));
+    }
+
     }
 }
