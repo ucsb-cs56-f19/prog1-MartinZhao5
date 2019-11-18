@@ -25,6 +25,11 @@ public class HomePageTest {
 
     @Autowired
     private MockMvc mvc;
+    @MockBean
+ private AuthControllerAdvice aca;
+
+ @MockBean
+ private ClientRegistrationRepository crr;
 
     @Test
     public void getHomePage_ContentType() throws Exception {
