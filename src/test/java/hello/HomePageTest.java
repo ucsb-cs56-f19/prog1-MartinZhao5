@@ -1,5 +1,6 @@
 package hello;
 
+//hello
 // import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -24,10 +25,7 @@ public class HomePageTest {
 
     @Autowired
     private MockMvc mvc;
-	@MockBean
-   private AuthControllerAdvice aca;
-	@MockBean
-   private ClientRegistrationRepository crr;
+
     @Test
     public void getHomePage_ContentType() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML))
@@ -51,10 +49,11 @@ public class HomePageTest {
 
 
     @Test
-    public void getHomePage_hasCorrectTitle() throws Exception {
+    public void getHomePage_hasCorrectBrand() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML))
                 .andExpect(status().isOk())
-                .andExpect(xpath("//title").exists())
-                .andExpect(xpath("//title").string("CS56 Spring Boot Practice App"));
+                .andExpect(xpath("//*[@id='navbarTogglerDemo03']/ul[1]/li[2]/a").exists())
+
+                .andExpect(xpath("//*[@id='navbarTogglerDemo03']/ul[1]/li[2]/a").string("Earthquakes"));
     }
 }
