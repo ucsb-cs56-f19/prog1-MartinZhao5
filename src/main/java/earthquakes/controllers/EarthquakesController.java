@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.HashMap;
 
 import com.nimbusds.oauth2.sdk.client.ClientReadRequest;
-import earthquakes.searches.Eqsearch;
+import earthquakes.searches.EqSearch;
 import earthquakes.geojson.FeatureCollection;
 import earthquakes.services.EarthquakeQueryService;
 @Controller
