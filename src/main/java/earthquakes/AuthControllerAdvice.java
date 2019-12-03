@@ -1,7 +1,7 @@
 package earthquakes;
 
-import hello.repositories.UserRepository;
-import hello.entities.AppUser;
+import earthquakes.repositories.UserRepository;
+import earthquakes.entities.AppUser;
 import java.util.List;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.beans.factory.annotation.Autowired;
