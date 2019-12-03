@@ -1,4 +1,4 @@
- <?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
@@ -60,12 +60,6 @@
     <!-- (23) <dependencies/> -->
 
     <dependencies>
-         <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>2.22.0</version>
-            <scope>test</scope>
-        </dependency>
 
         <!-- jpa, crud repository -->
         <dependency>
@@ -85,25 +79,7 @@
             <artifactId>jaxb-api</artifactId>
             <version>2.3.1</version>
         </dependency>
-
-         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>2.10.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.10.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        
+	
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -143,6 +119,13 @@
             <scope>test</scope>
         </dependency>
 
+	<dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+	
+
         <!-- https://mvnrepository.com/artifact/org.webjars/font-awesome -->
         <dependency>
             <groupId>org.webjars</groupId>
@@ -152,9 +135,10 @@
 
         <!-- https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity5 -->
         <dependency>
-            <groupId>org.thymeleaf.extras</groupId>
-            <artifactId>thymeleaf-extras-springsecurity5</artifactId>
-            <version>3.0.4.RELEASE</version>
+	  <groupId>org.mockito</groupId>
+	  <artifactId>mockito-core</artifactId>
+	  <version>2.22.0</version>
+	  <scope>test</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.jcabi/jcabi-github -->
@@ -162,6 +146,18 @@
             <groupId>com.jcabi</groupId>
             <artifactId>jcabi-github</artifactId>
             <version>1.0</version>
+        </dependency>
+
+	<dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.10.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.10.0</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/javax.json/javax.json-api -->
@@ -227,7 +223,7 @@
                     <archive>
                         <manifest>
                             <!-- full package name of class with the main you want to run -->
-			    <mainClass>hello.Application</mainClass>
+			    <mainClass>earthquakes.Application</mainClass>
 
                         </manifest>
                     </archive>
@@ -282,8 +278,7 @@
         </plugins>
     </reporting>
     <!-- (28) <profiles/> -->
-
-     <profiles>
+      <profiles>
         <profile>
             <id>localhost</id>
             <build>
@@ -333,5 +328,4 @@
             </dependencies>
         </profile>
     </profiles>
-
 </project>
