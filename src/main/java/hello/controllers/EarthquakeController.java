@@ -14,7 +14,7 @@ import java.util.HashMap;
 import com.nimbusds.oauth2.sdk.client.ClientReadRequest;
 
 import earthquakes.geojson.FeatureCollection;
-
+import hello.services.EarthquakeQueryService;
 @Controller
 public class EarthquakesController {
 
