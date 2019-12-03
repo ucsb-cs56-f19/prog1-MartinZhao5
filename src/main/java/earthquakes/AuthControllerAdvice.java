@@ -1,4 +1,4 @@
-package hello;
+package earthquakes;
 
 import hello.repositories.UserRepository;
 import hello.entities.AppUser;
