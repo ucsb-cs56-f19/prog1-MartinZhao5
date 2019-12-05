@@ -1,61 +1,46 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="en"> 
   <head>
-    <title>Earthquake Search Results</title>
+    <title>Earthquake Search</title>
     <div th:replace="bootstrap/bootstrap_head.html"></div>
   </head>
   <body>
     <div class="container">
       <div th:replace="bootstrap/bootstrap_nav_header.html"></div>
 
-      <h1>Earthquake Search Results</h1>
+      <h1>Earthquake Search</h1>
 
-      <h2> Results</h2>
+      <form action="#" th:action="@{/earthquakes/results}" th:object="${eqSearch}" method="get">
+            <table>
+                <tr class="form-group">
+                    <th><label for="distance" class="col-form-label">Distance (km)</label></th>
+                    <td><input type="number" th:field="*{distance}" class="form-control" id="distance" /></td>
+                </tr>
+                <tr class="form-group">
+                    <th><label for="minmag" class="col-form-label">Minimum Magnitude</label></th>
+                    <td><input type="number" th:field="*{minmag}" class="form-control" id="minmag" /></td>
+                </tr>
 
-        <table class="table">
-            <thead>
-              <tr>
-		  <th>Title</th>
-                  <th>Count</th>
-		  <th>Distance</th>
-                  <th>MinMag</th>
-		  <th>Latitude</th>
-		  <th>Longitude</th>
-		  <th>Location</th>
-                </tr>
-            </thead>
-            <tbody>
-              <tr>
-		<td><a th:href="${featureCollection.metadata.url}" th:text="${featureCollection.metadata.title}"></a></td>
-		  <td th:text="${featureCollection.metadata.count}"></td>
-                <td th:text="${eqSearch.distance}"></td>
-		<td th:text="${eqSearch.minmag}"></td>
-		<td th:text="${eqSearch.lat}"></td>
-		<td th:text="${eqSearch.lon}"></td>
-		<td th:text="${eqSearch.location}"></td>
-                </tr>
-            </tbody>
-        </table>
+	    <tr class="form-group">
+                    <th><label for="lat" class="col-form-label">Latitude</label></th>
+                    <td><input type="number" step="any" th:field="*{lat}" class="form-control" id="lat" /></td>
+            </tr>
 
-	<h3>Earthquakes</h3>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>id</th>
-                    <th>place</th>
-                    <th>mag</th>
+            <tr class="form-group">
+                    <th><label for="lon" class="col-form-label">Longitude</label></th>
+                    <td><input type="number" step="any" th:field="*{lon}" class="form-control" id="lon" /></td>
                 </tr>
-            </thead>
-            <tbody>
-              <tr th:each="f: ${featureCollection.features}">
-		<td><a th:href="${featureCollection.metadata.url}" th:text="${f.id}"></a></td>
-                    <td th:text="${f.properties.place}"></td>
-                    <td th:text="${f.properties.mag}"></td>
+
+            <tr class="form-group">
+                    <th><label for="location" class="col-form-label">Location</label></th>
+                    <td><input type="text" th:field="*{location}" class="form-control" id="location" /></td>
                 </tr>
-            </tbody>
-        </table>
-	
-	    
+            </table>
+
+
+            <input type="submit" class="btn btn-primary" value="Search" />
+        </form>
+
       <div th:replace="bootstrap/bootstrap_footer.html"></div>
     </div>
     <div th:replace="bootstrap/bootstrap_scripts.html"></div>
