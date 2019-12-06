@@ -88,3 +88,4 @@ public class LocationsController {
         model.addAttribute("locations", locations);
         return "locations/public";
 }
+}
