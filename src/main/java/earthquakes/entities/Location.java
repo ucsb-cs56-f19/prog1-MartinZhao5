@@ -31,4 +31,7 @@ public class Location {
 
     public double getLongitude() { return longitude; }
     public void setLongitude(double lon) { this.longitude = lon; }
+	
+   public String getUid() { return uid; }
+    public void setUid (String uid) { this.uid = uid; }
 }
