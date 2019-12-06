@@ -61,7 +61,7 @@ public class LocationsController {
     }
 
     @GetMapping("/locations")
-    public String index(Model model,OAuth2AuthenticationToken oAuth2AuthenticationToken) {
+    public String index(Model model) {
 	
         Iterable<Location> locations = locationRepository.findAll();
         model.addAttribute("locations", locations);
@@ -69,7 +69,7 @@ public class LocationsController {
     }
 
     @PostMapping("/locations/add")
-    public String add(Location location, Model model) {
+    public String add(Location location, Model model,OAuth2AuthenticationToken oAuth2AuthenticationToken) {
       locationRepository.save(location);
       model.addAttribute("locations", locationRepository.findByUid(oAuth2AuthenticationToken.getPrincipal().getAttributes().get("id").toString()));
       return "locations/index";
